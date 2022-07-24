@@ -30,17 +30,22 @@ export class PlaygroundComponent implements OnInit {
     this.enteredText = input;
   }
 
+  private getRandomText() {
+    const lengths = [3, 4, 5, 6, 7];
+    const randomLength = lengths[Math.floor(Math.random() * lengths.length)];
+    return faker.lorem.sentence(randomLength);
+  }
+
   private getHighlighClass(currentChar: string, enteredChar: string) {
     if (!enteredChar) return 'pending';
 
-    if (currentChar === enteredChar)
-      return currentChar !== ' ' ? 'correct' : 'correct bg';
+    if (currentChar === enteredChar) return 'correct';
 
     return currentChar !== ' ' ? 'incorrect' : 'incorrect bg';
   }
 
   reset() {
-    this.randomText = faker.lorem.sentence(3);
+    this.randomText = this.getRandomText();
     this.charMap = this.randomText
       .split('')
       .map((c) => ({ letter: c, match: '-' }));
