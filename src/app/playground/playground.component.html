@@ -1,1 +1,28 @@
-<p>playground works!</p>
+<div class="container">
+  <div class="columns is-centered">
+    <div class="box column is-one-half">
+      <h1 class="title has-text-centered">Typing Challenge</h1>
+
+      <p class="has-text-centered">
+        <span *ngFor="let char of charMap" [class]="char.match">{{
+          char.letter
+        }}</span>
+      </p>
+
+      <div class="field">
+        <input
+          #input
+          (input)="onInputChange(input.value)"
+          type="text"
+          class="input"
+          [value]="enteredText"
+          [ngClass]="matched ? 'is-success' : 'is-warning'"
+        />
+      </div>
+      <div *ngIf="matched" class="box has-text-centered">
+        <span class="tag is-success is-large">Success!</span>
+        <button class="button is-primary is-light" (click)="reset()">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>

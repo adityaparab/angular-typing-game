@@ -1,0 +1,28 @@
+input {
+  text-align: center;
+}
+
+.correct {
+  color: green;
+  font-style: italic;
+}
+
+.incorrect {
+  color: red;
+  font-weight: bold;
+}
+
+.incorrect.bg::before {
+  content: "\2716";
+  position: relative;
+  left: 2px;
+  top: 1px;
+}
+
+.pending {
+  color: black;
+}
+
+.button {
+    margin: 0 10px;
+}
