@@ -16,6 +16,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/password-generator
+  local_dir: dist/typing-game
   on:
     branch: main
